@@ -22,8 +22,8 @@ export async function PUT(request, { params }) {
     const collection = database.collection(process.env.MONGODB_COLLECTION);
 
     const { id } = params
-    const { nombre, edad } = await request.json() // Read body request
-    const results = await collection.updateOne({ _id: new ObjectId(id) }, { $set: { nombre, edad } });
+    const { nombre, precio, descripccion } = await request.json() // Read body request
+    const results = await collection.updateOne({ _id: new ObjectId(id) }, { $set: { nombre, precio, descripccion } });
 
     return Response.json(results);
 }
